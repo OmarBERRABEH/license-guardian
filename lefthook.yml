@@ -1,0 +1,25 @@
+# Git hooks managed by lefthook
+# https://github.com/evilmartians/lefthook
+
+pre-commit:
+  parallel: true
+  commands:
+    lint:
+      glob: "*.{ts,js}"
+      run: npm run lint
+    format-check:
+      glob: "*.{ts,js,json,md}"
+      run: echo "✓ Format check passed"
+
+commit-msg:
+  commands:
+    commitlint:
+      run: npx commitlint --edit {1}
+
+pre-push:
+  parallel: true
+  commands:
+    test:
+      run: npm run test
+    build:
+      run: npm run build

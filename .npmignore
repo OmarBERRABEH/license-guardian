@@ -1,0 +1,17 @@
+src/
+tsconfig.json
+vitest.config.ts
+*.test.ts
+*.spec.ts
+.git
+.github/
+.gitignore
+node_modules
+.DS_Store
+coverage/
+.vscode/
+.idea/
+*.log
+lefthook.yml
+commitlint.config.js
+CONTRIBUTING.md
