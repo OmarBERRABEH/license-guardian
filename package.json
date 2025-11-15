@@ -1,0 +1,66 @@
+{
+	"name": "@license-guardian/licenses",
+	"version": "1.0.0",
+	"description": "Automated tool to verify that all production dependencies use commercially-compatible licenses",
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"type": "module",
+	"bin": {
+		"license-guardian": "dist/cli.js"
+	},
+	"scripts": {
+		"build": "tsc",
+		"dev": "tsc --watch",
+		"test": "vitest run",
+		"test:watch": "vitest",
+		"test:coverage": "vitest run --coverage",
+		"typecheck": "tsc --noEmit",
+		"biome": "biome check --write .",
+		"lint": "npm run typecheck && npm run biome",
+		"prepublishOnly": "npm run build && npm run test",
+		"prepare": "lefthook install",
+		"release": "standard-version",
+		"release:minor": "standard-version --release-as minor",
+		"release:major": "standard-version --release-as major",
+		"release:patch": "standard-version --release-as patch"
+	},
+	"keywords": [
+		"license",
+		"compliance",
+		"commercial",
+		"copyleft",
+		"gpl",
+		"legal",
+		"dependencies",
+		"checker"
+	],
+	"author": "Omar Berrabeh",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/OmarBERRABEH/license-guardian"
+	},
+	"bugs": {
+		"url": "https://github.com/OmarBERRABEH/license-guardian/issues"
+	},
+	"homepage": "https://github.com/OmarBERRABEH/license-guardian#readme",
+	"engines": {
+		"node": ">=18.0.0"
+	},
+	"files": [
+		"dist",
+		"README.md",
+		"CHANGELOG.md"
+	],
+	"devDependencies": {
+		"@biomejs/biome": "2.3.5",
+		"@commitlint/cli": "^18.0.0",
+		"@commitlint/config-conventional": "^18.0.0",
+		"@types/node": "^20.0.0",
+		"@vitest/coverage-v8": "^1.0.0",
+		"lefthook": "^1.5.0",
+		"standard-version": "^9.5.0",
+		"typescript": "^5.0.0",
+		"vitest": "^1.0.0"
+	}
+}
